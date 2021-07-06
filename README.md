@@ -13,7 +13,6 @@ Los consumidores, como factor importante en este proyecto, tendrán la posibilid
 
 El diseño de la página está pensado con un diseño elegante, el cual se vincule directamente con las tradiciones de nuestro bello país. Asimismo, la interfaz de la página estará personalizada de una manera confortable, tratando así de generar una gran expectativa en los visitantes, teniendo como finalidad tratar de persuadir al cliente. Del mismo modo, se le dará prioridad a las características y el origen de los productos, así como su elaboración e impacto en sustentabilidad.
 
-
 ## OBJETIVOS 
 El equipo Acteon busca alcanzar los siguientes objetivos:
 - Lograr representar y apoyar a Obio dentro de la página web.
