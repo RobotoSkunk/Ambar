@@ -1,4 +1,4 @@
-# Ámbar
+![Ámbar](./resources/Ámbar.png "Logo de Ámbar.")
 ## ACERCA DE
 Somos Acteon, un grupo fundado por jóvenes con la finalidad de innovar y modernizar los estándares de la industria web. Nuestro objetivo es crear soluciones de logística con astucia y profesionalismo. El único proyecto en el que trabajamos actualmente es la creación del API de Ámbar para darle solución al problema logístico de cualquier empresa. Nos estamos limitando para conseguirlo con la empresa Obio y la problemática de sus ventas digitales.
 
