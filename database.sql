@@ -39,11 +39,20 @@ CREATE TABLE producers (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE categories (
+CREATE TABLE parent_category (
 	id INT AUTO_INCREMENT,
 	c_name VARCHAR(30) NOT NULL,
 	
 	PRIMARY KEY (id)
+);
+
+CREATE TABLE categories (
+	id INT AUTO_INCREMENT,
+	c_name VARCHAR(30) NOT NULL,
+	parent INT NOT NULL,
+	
+	PRIMARY KEY (id),
+	FOREIGN KEY (parent) REFERENCES parent_category (id)
 );
 
 CREATE TABLE products (
@@ -100,7 +109,7 @@ CREATE TABLE categories_pref (
 	FOREIGN KEY (cid) REFERENCES categories (id)
 );
 
-CREATE TABLE shopping(
+CREATE TABLE shopping (
 	id INT AUTO_INCREMENT,
 	uuid INT NOT NULL,
 	proid INT NOT NULL,
@@ -112,4 +121,12 @@ CREATE TABLE shopping(
 	FOREIGN KEY (proid) REFERENCES products (id)
 );
 
+CREATE TABLE tokens (
+	id INT AUTO_INCREMENT,
+	uuid INT NOT NULL,
+	selector VARCHAR(60) NOT NULL UNIQUE,
+	token TINYTEXT NOT NULL,
+	created_at DATETIME NOT NULL,
+	last_usage DATETIME NOT NULL
+);
 
