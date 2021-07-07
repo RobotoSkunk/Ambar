@@ -11,28 +11,32 @@ if (isset($_POST['action'])) {
 		switch ($_POST['action']) {
 			case 'remember-me':
 				if (isset($_POST['token'])) {
-					$data['message'] = "Pene";
+					$data['result'] = 0;
+					$data['message'] = "Testing";
 				} else {
 					$data['message'] = "Token missing.";
 				}
 				break;
 			case 'end-remember-me':
 				if (isset($_POST['token'])) {
-					$data['message'] = "Pene";
+					$data['result'] = 0;
+					$data['message'] = "Testing";
 				} else {
 					$data['message'] = "Token missing.";
 				}
 				break;
 			case 'end-session':
 				if (isset($_POST['token'])) {
-					$data['message'] = "Pene";
+					$data['result'] = 0;
+					$data['message'] = "Testing";
 				} else {
 					$data['message'] = "Token missing.";
 				}
 				break;
 			case 'login':
 				if (isset($_POST['email'], $_POST['password'])) {
-					$data['message'] = "Pene";
+					$data['result'] = 0;
+					$data['message'] = "Testing";
 				} else {
 					$data['message'] = "Data missing.";
 				}
