@@ -1,21 +1,69 @@
-<!-- Hola buenas noches-->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/obio.css">
+        <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/sidebar.css">
 
-    <title>Obio</title>
-  </head>
-  <body>
-    <h1>Hello bootstrap!</h1>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <title>Obio</title>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
+    </head>
+    <body>
+      <div class="container .img-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">Hola</a>
+        </nav>
+      </div>
+
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#">ARTESANIAS</a>
+        <a href="#">Madera </a>
+        <a href="#">Hoja de Pino</a>
+        <a href="#">CAFES DE ORIGEN</a>
+        <a href="#">Café Orgánico Tostado y Molido</a>
+        <a href="#">Café Orgánico Gourmet Tostado y Molido </a>
+        <a href="#">Café Orgánico en Grano Tostado</a>
+        <a href="#">Café Liofilizado</a>
+        <a href="#">CACAO </a>
+        <a href="#">Chocolate Miel con Cacao untable </a>
+        <a href="#">Nibs de Cacao </a>
+        <a href="#">Barra de Licor de Cacao</a>
+        <a href="#">Barra de Chocolate Oscuro </a>
+        <a href="#">MIEL DE ABEJA</a>
+        <a href="#">Miel Diferenciada por Floracion</a> 
+        <a href="#">Miel Multiflora Orgánica</a>
+        <a href="#">Miel Multiflora Mantequilla</a>
+        <a href="#">Miel Melipona</a>
+        <a href="#">CUIDADO DE LA PIEL</a>
+        <a href="#">HERBOLARIA</a>
+          
+      </div>
+          
+      <div id="main">
+        <button class="openbtn" onclick="openNav()">☰ CLASIFICACION </button>  
+      </div>
+          
+      <script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+          
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+      </script>
+
+      <!-- Bootstrap Bundle with Popper -->
+      <script src="./resources/bootstrap/js/bootstrap.min.js"></script>
+    </body>
 </html>
