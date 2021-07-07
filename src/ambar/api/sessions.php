@@ -23,24 +23,6 @@ if (isset($_POST['action'])) {
 					$data['message'] = "Token missing.";
 				}
 				break;
-			case 'end-remember-me':
-				if (isset($_POST['token'])) {
-					$token = VerifyToken($_POST['token']);
-					if ($token) {
-						$stmt = $conn->prepare('DELETE FROM tokens WHERE id = ?;');
-						$stmt->bind_param('i', $token['id']);
-						$stmt->execute();
-						$stmt->store_result();
-						if ($stmt->affected_rows > 0) {
-							$data['result'] = 0;
-							$data['message'] = "Se cerró la sesión.";
-						}
-						$stmt->close();
-					}
-				} else {
-					$data['message'] = "Token missing.";
-				}
-				break;
 			case 'end-session':
 				if (isset($_POST['token'])) {
 					$token = VerifyToken($_POST['token']);
