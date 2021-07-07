@@ -3,7 +3,7 @@ CREATE DATABASE obio;
 
 -- ProID = Productor ID
 -- PID = Producto ID
--- UID = Usuario ID
+-- UUID = Usuario ID
 -- CID = Categoría ID
 
 CREATE TABLE users (
