@@ -5,7 +5,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #000;
+    background-color:  #f58234;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -15,7 +15,7 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #000;
     display: block;
     transition: 0.3s;
 }
@@ -35,14 +35,14 @@
 .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: #111;
-    color: white;
+    background-color: #fcaf1a;
+    color: black;
     padding: 10px 15px;
     border: none;
 }
   
 .openbtn:hover {
-    background-color: #444;
+    background-color: k#444;
 }
   
 #main {
