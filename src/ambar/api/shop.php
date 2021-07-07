@@ -83,22 +83,8 @@ if (isset($_POST['action'])) {
 
 				$data['posts'] = $posts;
 				break;
-			case 'load-post':
+			/*case 'load-post':
 				$posts = [];
-/*
-CREATE TABLE products (
-	id INT AUTO_INCREMENT,
-	cid INT NOT NULL,
-	proid INT NOT NULL,
-	p_name VARCHAR(30) NOT NULL,
-	price INT NOT NULL,
-	p_desc LONGTEXT NOT NULL,
-	stock INT NOT NULL,
-	
-	PRIMARY KEY (id),
-	FOREIGN KEY (cid) REFERENCES categories (id),
-	FOREIGN KEY (proid) REFERENCES producers (id)
-);*/
 				$stmt = $conn->prepare("SELECT cid, proid, p_name, price, p_desc, stock FROM products WHERE id = ?;");
 				if (isset($_POST['category-id'])) $stmt->bind_param('i', $_POST['category-id']);
 				$stmt->execute();
@@ -115,7 +101,7 @@ CREATE TABLE products (
 				$stmt->close();
 
 				$data['posts'] = $posts;
-				break;
+				break;*/
 			default:
 				$data['message'] = "Invalid action.";
 				break;
