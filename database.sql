@@ -49,7 +49,7 @@ CREATE TABLE parent_category (
 CREATE TABLE categories (
 	id INT AUTO_INCREMENT,
 	c_name VARCHAR(30) NOT NULL,
-	parent INT NOT NULL,
+	parent INT,
 	
 	PRIMARY KEY (id),
 	FOREIGN KEY (parent) REFERENCES parent_category (id)
