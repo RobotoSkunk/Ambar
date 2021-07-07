@@ -127,6 +127,9 @@ CREATE TABLE tokens (
 	selector VARCHAR(60) NOT NULL UNIQUE,
 	token TINYTEXT NOT NULL,
 	created_at DATETIME NOT NULL,
-	last_usage DATETIME NOT NULL
+	last_usage DATETIME NOT NULL,
+
+	PRIMARY KEY (id),
+	FOREIGN KEY (uuid) REFERENCES users (id)
 );
 
