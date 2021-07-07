@@ -7,7 +7,6 @@ $data = [
 if (isset($_POST['action'])) {
 	try {
 		require_once('../database.php');
-		require_once('../oauth-lib.php');
 
 		switch ($_POST['action']) {
 			case 'remember-me':

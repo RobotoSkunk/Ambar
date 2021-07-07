@@ -48,7 +48,7 @@ CREATE TABLE parent_category (
 
 CREATE TABLE categories (
 	id INT AUTO_INCREMENT,
-	c_name VARCHAR(30) NOT NULL,
+	c_name VARCHAR(60) NOT NULL,
 	parent INT,
 	
 	PRIMARY KEY (id),
@@ -132,4 +132,38 @@ CREATE TABLE tokens (
 	PRIMARY KEY (id),
 	FOREIGN KEY (uuid) REFERENCES users (id)
 );
+
+------------------------------------------------------------------------
+
+INSERT INTO parent_category (c_name) VALUES
+	("Cafés de origen"),
+	("De cacao"),
+	("Miel de abeja"),
+	("Artesania")
+;
+
+INSERT INTO categories (c_name, parent) VALUES
+	("Café orgánico tostado y molido", 1),
+	("Café orgánico soluble", 1),
+	("Café orgánico gourmet tostado y molido", 1),
+	("Café orgánico en grano tostado", 1),
+	("Café liofilizado", 1),
+
+	("Chocolate miel con cacao untable", 2),
+	("Nibs de cacao", 2),
+	("Barra de licor de cacao", 2),
+	("Barra de chocolate oscuro", 2),
+	("Barra de chocolate de mesa", 2),
+
+	("Miel diferenciada por floración", 3),
+	("Miel multiflora orgánica", 3),
+	("Miel multiflora mantequilla", 3),
+	("Miel de abeja melipona", 3),
+
+	("De madera", 4),
+	("De hoja de pino", 4),
+
+	("Cuidado de la piel", NULL),
+	("Herbolaria", NULL)
+;
 
