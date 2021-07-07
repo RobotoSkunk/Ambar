@@ -39,11 +39,20 @@ CREATE TABLE producers (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE categories (
+CREATE TABLE parent_category (
 	id INT AUTO_INCREMENT,
 	c_name VARCHAR(30) NOT NULL,
 	
 	PRIMARY KEY (id)
+);
+
+CREATE TABLE categories (
+	id INT AUTO_INCREMENT,
+	c_name VARCHAR(60) NOT NULL,
+	parent INT,
+	
+	PRIMARY KEY (id),
+	FOREIGN KEY (parent) REFERENCES parent_category (id)
 );
 
 CREATE TABLE products (
@@ -100,7 +109,7 @@ CREATE TABLE categories_pref (
 	FOREIGN KEY (cid) REFERENCES categories (id)
 );
 
-CREATE TABLE shopping(
+CREATE TABLE shopping (
 	id INT AUTO_INCREMENT,
 	uuid INT NOT NULL,
 	proid INT NOT NULL,
@@ -111,6 +120,42 @@ CREATE TABLE shopping(
 	FOREIGN KEY (uuid) REFERENCES users (id),
 	FOREIGN KEY (proid) REFERENCES products (id)
 );
+
+
+------------------------------------------------------------------------
+
+INSERT INTO parent_category (c_name) VALUES
+	("Cafés de origen"),
+	("De cacao"),
+	("Miel de abeja"),
+	("Artesania")
+;
+
+INSERT INTO categories (c_name, parent) VALUES
+	("Café orgánico tostado y molido", 1),
+	("Café orgánico soluble", 1),
+	("Café orgánico gourmet tostado y molido", 1),
+	("Café orgánico en grano tostado", 1),
+	("Café liofilizado", 1),
+
+	("Chocolate miel con cacao untable", 2),
+	("Nibs de cacao", 2),
+	("Barra de licor de cacao", 2),
+	("Barra de chocolate oscuro", 2),
+	("Barra de chocolate de mesa", 2),
+
+	("Miel diferenciada por floración", 3),
+	("Miel multiflora orgánica", 3),
+	("Miel multiflora mantequilla", 3),
+	("Miel de abeja melipona", 3),
+
+	("De madera", 4),
+	("De hoja de pino", 4),
+
+	("Cuidado de la piel", NULL),
+	("Herbolaria", NULL)
+;
+
 --REGISTROS 
 --producers
 INSERT INTO producers (id,p_name,p_desc, city)
@@ -129,3 +174,17 @@ VALUES ('10','1','cafe organico MAJOMUT','$200','En su sabor se aprecian notas a
 resultado de la presencia de granos arábigos le confieren atributos en taza','200')
 INSERT INTO  products (id,cid,porid,p_name,price,p_desc,stock)
 VALUES ('11','2','Alcoholatura de Ajo','$100','Antiséptico, expectorante, reduce niveles de colesterol, antihistamínico natural.','200')
+=======
+
+CREATE TABLE tokens (
+	id INT AUTO_INCREMENT,
+	uuid INT NOT NULL,
+	selector VARCHAR(60) NOT NULL UNIQUE,
+	token TINYTEXT NOT NULL,
+	created_at DATETIME NOT NULL,
+	last_usage DATETIME NOT NULL,
+
+	PRIMARY KEY (id),
+	FOREIGN KEY (uuid) REFERENCES users (id)
+);
+
