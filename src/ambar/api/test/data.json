@@ -1,0 +1,22 @@
+[
+	{
+		"name":"Café en lata",
+		"price": 499.9,
+		"img":"xyz"
+	},
+	{
+		"name":"Juguete de madera",
+		"price": -1,
+		"img":"xyz"
+	},
+	{
+		"name":"Leche en bolsa",
+		"price": 9999999999999,
+		"img":"xyz"
+	},
+	{
+		"name":"Tacos de metal",
+		"price": 0,
+		"img":"xyz"
+	}
+]
