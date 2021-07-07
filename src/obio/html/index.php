@@ -36,7 +36,7 @@
 							<h5 class="fw-bolder">Jarabe Herbamiel</h5>
 							<!-- Product price-->
 							<span class="text-muted text-decoration-line-through"></span>
-							$50.00
+							$50.00 MXN
 						</div>
 					</div>
 					<!-- Product actions-->
@@ -56,7 +56,7 @@
 							<h5 class="fw-bolder">Crema corporal TOSEPAN</h5>
 							<!-- Product price-->
 							<span class="text-muted text-decoration-line-through"></span>
-							$200.00
+							$200.00 MXN
 						</div>
 					</div>
 					<!-- Product actions-->
@@ -75,7 +75,7 @@
 							<!-- Product name-->
 							<h5 class="fw-bolder">Olla MED</h5>
 							<!-- Product price-->
-							$400.00
+							$400.00 MXN
 						</div>
 					</div>
 					<!-- Product actions-->
@@ -95,7 +95,7 @@
 							<h5 class="fw-bolder">Bolsa Dama</h5>
 							<!-- Product price-->
 							<span class="text-muted text-decoration-line-through"></span>
-							$250.00
+							$250.00 MXN
 						</div>
 					</div>
 					<!-- Product actions-->
@@ -114,7 +114,7 @@
 							<!-- Product name-->
 							<h5 class="fw-bolder">Tecolote</h5>
 							<!-- Product price-->
-							$120.00 - $280.00
+							$120.00 MXN - $280.00 MXN
 						</div>
 					</div>
 					<!-- Product actions-->
@@ -135,7 +135,7 @@
 								de Cacao</h5>
 							<!-- Product price-->
 							<span class="text-muted text-decoration-line-through"></span>
-							$180.00
+							$180.00 MXN
 						</div>
 					</div>
 					<!-- Product actions-->
@@ -154,7 +154,7 @@
 							<!-- Product name-->
 							<h5 class="fw-bolder">Miel de abeja Melipona MUUCH KAAB</h5>
 							<!-- Product price-->
-							$120.00
+							$120.00 MXN
 						</div>
 					</div>
 					<!-- Product actions-->
