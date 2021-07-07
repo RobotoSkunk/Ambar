@@ -27,7 +27,7 @@ CREATE TABLE cards (
 	end_date DATE NOT NULL,
 
 	PRIMARY KEY (id),
-	FOREIGN KEY uuid REFERENCES users(id)
+	FOREIGN KEY (uuid) REFERENCES users (id)
 );
 
 CREATE TABLE producers (
@@ -56,8 +56,8 @@ CREATE TABLE products (
 	stock INT NOT NULL,
 	
 	PRIMARY KEY (id),
-	FOREIGN KEY (cid) REFERENCES categories(id),
-	FOREIGN KEY (proid) REFERENCES producers(id)
+	FOREIGN KEY (cid) REFERENCES categories (id),
+	FOREIGN KEY (proid) REFERENCES producers (id)
 );
 
 CREATE TABLE presentation (
@@ -67,7 +67,7 @@ CREATE TABLE presentation (
 	picture VARCHAR(120),
 
 	PRIMARY KEY (id),
-	FOREIGN KEY (pid) REFERENCES products(id) 
+	FOREIGN KEY (pid) REFERENCES products (id) 
 );
 
 CREATE TABLE features (
@@ -77,7 +77,7 @@ CREATE TABLE features (
 	f_data TINYTEXT NOT NULL,
 	
 	PRIMARY KEY (id),
-	FOREIGN KEY (pid) REFERENCES products(id)
+	FOREIGN KEY (pid) REFERENCES products (id)
 );
 
 CREATE TABLE producers_pref (
@@ -86,8 +86,8 @@ CREATE TABLE producers_pref (
 	proid INT NOT NULL,
 	
 	PRIMARY KEY (id),
-	FOREIGN KEY (proid) REFERENCES products(id),
-	FOREIGN KEY (uuid) REFERENCES users(id)
+	FOREIGN KEY (proid) REFERENCES products (id),
+	FOREIGN KEY (uuid) REFERENCES users (id)
 );
 
 CREATE TABLE categories_pref (
@@ -96,8 +96,8 @@ CREATE TABLE categories_pref (
 	cid INT NOT NULL,
 	
 	PRIMARY KEY (id),
-	FOREIGN KEY (uuid) REFERENCES users(id),
-	FOREIGN KEY (cid) REFERENCES categories(id)
+	FOREIGN KEY (uuid) REFERENCES users (id),
+	FOREIGN KEY (cid) REFERENCES categories (id)
 );
 
 CREATE TABLE shopping(
@@ -108,8 +108,8 @@ CREATE TABLE shopping(
 	bought BOOLEAN,
 	
 	PRIMARY KEY (id),
-	FOREIGN KEY (uuid) REFERENCES users(id),
-	FOREIGN KEY (proid) REFERENCES products(id)
+	FOREIGN KEY (uuid) REFERENCES users (id),
+	FOREIGN KEY (proid) REFERENCES products (id)
 );
 
 
