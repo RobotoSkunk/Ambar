@@ -121,14 +121,32 @@ jQuery(function() {
 	
 
 	function Load_Categories(){
+		var fd = new FormData();
+		fd.append('action', 'load-categories');
 
-		$.ajax('./data.json', {
+		$.ajax('../shop.php', {
+			"data": fd,
+			"method":"POST",
+			"processData":false,
+			"contentType": false,
 			"success": (data) => {
-				for (var i in data) {
-					$("#productos").append(`<p>Nombre: ${daa[i]['name']} | precio: $${data[i]['price']}</p>`);
+				var toAppend = '';
+				
+				for (var i in data['categories']) {
+					toAppend += `<div><h2>${data['categories'][i]['name']}</h2>`;
+					
+
+					for (var a in data['categories'][i]['childs']) {
+						toAppend += `<p>${data['categories'][i]['childs'][a]['name']}</p>`;
+					}
+					
+					toAppend += '</div><br/>';
 				}
-			},
-			"processData": false
+
+				$("#productos").html(toAppend);
+			}
 		})
 	}
+
+	Load_Categories();
 });

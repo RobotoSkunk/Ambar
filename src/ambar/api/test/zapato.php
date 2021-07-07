@@ -10,6 +10,6 @@
 	</head>
 	<body>
 		<script src="./zapato.js"></script>
-		<div id="comes"></div>
+		<div id="productos"></div>
 	</body>
 </html>
