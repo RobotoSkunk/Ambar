@@ -4,11 +4,11 @@ $data = [
 	'message' => "No data"
 ];
 
-if (isset($_GET['action'])) {
+if (isset($_POST['action'])) {
 	try {
 		require_once('../database.php');
 
-		switch ($_GET['action']) {
+		switch ($_POST['action']) {
 			case 'load-categories':
 				$categories = [];
 
@@ -62,16 +62,59 @@ if (isset($_GET['action'])) {
 				$data['categories'] = $categories;
 				break;
 			case 'load-posts':
-				$extraSQL = isset($_GET['category-id']) ? 'AND products.cid = ?' : '';
+				$extraSQL = isset($_POST['category-id']) ? 'AND products.cid = ?' : '';
+				$posts = [];
 
 				$stmt = $conn->prepare("SELECT products.id, products.p_name, products.price, presentation.picture
-				FROM products JOIN presentation WHERE products.id = presentation.pid $extraSQL;");
-				if (isset($_GET['category-id'])) $stmt->bind_param('i', $_GET['category-id']);
+					FROM products JOIN presentation WHERE products.id = presentation.pid $extraSQL;");
+				if (isset($_POST['category-id'])) $stmt->bind_param('i', $_POST['category-id']);
 				$stmt->execute();
 				$stmt->store_result();
-				$stmt->bind_result($cid, $cname);
-				
+				$stmt->bind_result($pid, $pname, $price, $picture);
+				while ($stmt->fetch()) {
+					array_push($posts, [
+						"id" => $pid,
+						"name" => $pname,
+						"price" => $price,
+						"picture" => $picture
+					]);
+				}
 				$stmt->close();
+
+				$data['posts'] = $posts;
+				break;
+			case 'load-post':
+				$posts = [];
+/*
+CREATE TABLE products (
+	id INT AUTO_INCREMENT,
+	cid INT NOT NULL,
+	proid INT NOT NULL,
+	p_name VARCHAR(30) NOT NULL,
+	price INT NOT NULL,
+	p_desc LONGTEXT NOT NULL,
+	stock INT NOT NULL,
+	
+	PRIMARY KEY (id),
+	FOREIGN KEY (cid) REFERENCES categories (id),
+	FOREIGN KEY (proid) REFERENCES producers (id)
+);*/
+				$stmt = $conn->prepare("SELECT cid, proid, p_name, price, p_desc, stock FROM products WHERE id = ?;");
+				if (isset($_POST['category-id'])) $stmt->bind_param('i', $_POST['category-id']);
+				$stmt->execute();
+				$stmt->store_result();
+				$stmt->bind_result($pid, $pname, $price, $picture);
+				while ($stmt->fetch()) {
+					array_push($posts, [
+						"id" => $pid,
+						"name" => $pname,
+						"price" => $price,
+						"picture" => $picture
+					]);
+				}
+				$stmt->close();
+
+				$data['posts'] = $posts;
 				break;
 			default:
 				$data['message'] = "Invalid action.";
