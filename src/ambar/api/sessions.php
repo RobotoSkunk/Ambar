@@ -7,7 +7,6 @@ $data = [
 if (isset($_POST['action'])) {
 	try {
 		require_once('../database.php');
-		require_once('../oauth-lib.php');
 
 		switch ($_POST['action']) {
 			case 'remember-me':
@@ -18,24 +17,6 @@ if (isset($_POST['action'])) {
 						$data['message'] = "Sesión verificada.";
 					} else {
 						$data['message'] = "Sesión inválida.";
-					}
-				} else {
-					$data['message'] = "Token missing.";
-				}
-				break;
-			case 'end-remember-me':
-				if (isset($_POST['token'])) {
-					$token = VerifyToken($_POST['token']);
-					if ($token) {
-						$stmt = $conn->prepare('DELETE FROM tokens WHERE id = ?;');
-						$stmt->bind_param('i', $token['id']);
-						$stmt->execute();
-						$stmt->store_result();
-						if ($stmt->affected_rows > 0) {
-							$data['result'] = 0;
-							$data['message'] = "Se cerró la sesión.";
-						}
-						$stmt->close();
 					}
 				} else {
 					$data['message'] = "Token missing.";
