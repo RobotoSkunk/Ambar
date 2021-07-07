@@ -119,4 +119,16 @@ jQuery(function() {
 		});
 	}
 	
+
+	function Load_Categories(){
+
+		$.ajax('./data.json', {
+			"success": (data) => {
+				for (var i in data) {
+					$("#productos").append(`<p>Nombre: ${daa[i]['name']} | precio: $${data[i]['price']}</p>`);
+				}
+			},
+			"processData": false
+		})
+	}
 });

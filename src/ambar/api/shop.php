@@ -61,6 +61,18 @@ if (isset($_GET['action'])) {
 				$data['message'] = '';
 				$data['categories'] = $categories;
 				break;
+			case 'load-posts':
+				$extraSQL = isset($_GET['category-id']) ? 'AND products.cid = ?' : '';
+
+				$stmt = $conn->prepare("SELECT products.id, products.p_name, products.price, presentation.picture
+				FROM products JOIN presentation WHERE products.id = presentation.pid $extraSQL;");
+				if (isset($_GET['category-id'])) $stmt->bind_param('i', $_GET['category-id']);
+				$stmt->execute();
+				$stmt->store_result();
+				$stmt->bind_result($cid, $cname);
+				
+				$stmt->close();
+				break;
 			default:
 				$data['message'] = "Invalid action.";
 				break;
